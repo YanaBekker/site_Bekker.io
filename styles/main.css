@@ -467,7 +467,6 @@ footer {
   }
 }
 
-/* Специфичные стили для страницы с заданием */
 .page-hero {
   height: 40vh;
   background: linear-gradient(rgba(6, 6, 6, 0.7), rgba(25, 25, 25, 0.7)),

@@ -1,4 +1,3 @@
-/* Стили для анимации лисы */
 .animation-container {
   text-align: center;
   margin: 20px 0;
@@ -241,7 +240,6 @@
   }
 }
 
-/* Убираем старые стили */
 .site-container {
   display: none;
 }
