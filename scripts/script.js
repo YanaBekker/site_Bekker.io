@@ -1,4 +1,3 @@
-// Функция для загрузки HTML компонентов
 function loadComponent(containerId, filePath) {
   return fetch(filePath)
     .then((response) => {
@@ -20,23 +19,18 @@ function loadComponent(containerId, filePath) {
     });
 }
 
-// Инициализация всех компонентов и функционала
 document.addEventListener("DOMContentLoaded", function () {
-  // Загружаем header и footer
   Promise.all([
     loadComponent("header-container", "components/header.html"),
     loadComponent("footer-container", "components/footer.html"),
   ]).then(() => {
-    // Инициализируем функционал после загрузки компонентов
     initNavigation();
     initForms();
     initSmoothScroll();
   });
 });
 
-// Инициализация навигации
 function initNavigation() {
-  // Обработка прокрутки для навигации
   window.addEventListener("scroll", function () {
     const navbar = document.getElementById("navbar");
     if (navbar && window.scrollY > 50) {
@@ -46,27 +40,21 @@ function initNavigation() {
     }
   });
 
-  // Мобильное меню
   const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
   const navLinks = document.querySelector(".nav-links");
 
   if (mobileMenuBtn && navLinks) {
     mobileMenuBtn.addEventListener("click", function () {
       navLinks.classList.toggle("active");
-      // Анимация кнопки меню
       this.classList.toggle("active");
     });
   }
 }
 
-// Инициализация плавной прокрутки
 function initSmoothScroll() {
-  // Плавная прокрутка для якорных ссылок
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       const targetId = this.getAttribute("href");
-
-      // Проверяем, что это якорная ссылка на текущей странице
       if (targetId === "#" || targetId.includes(".html")) return;
 
       e.preventDefault();
@@ -80,10 +68,7 @@ function initSmoothScroll() {
           behavior: "smooth",
         });
 
-        // Обновляем URL без перезагрузки страницы
         history.pushState(null, null, targetId);
-
-        // Закрываем мобильное меню после клика
         const navLinks = document.querySelector(".nav-links");
         const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
 
@@ -98,17 +83,13 @@ function initSmoothScroll() {
   });
 }
 
-// Инициализация форм
 function initForms() {
-  // Обработка формы подписки
   const subscribeForm = document.querySelector(".subscribe-form");
   if (subscribeForm) {
     subscribeForm.addEventListener("submit", function (e) {
       e.preventDefault();
       const emailInput = this.querySelector('input[type="email"]');
       const email = emailInput.value;
-
-      // Простая обработка формы
       alert(
         `Спасибо за подписку! На адрес ${email} будут отправляться новости.`
       );
@@ -117,7 +98,6 @@ function initForms() {
   }
 }
 
-// Добавляем CSS для анимации мобильного меню
 const style = document.createElement("style");
 style.textContent = `
   .mobile-menu-btn.active span:nth-child(1) {

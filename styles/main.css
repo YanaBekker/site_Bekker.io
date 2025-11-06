@@ -377,7 +377,6 @@ footer {
   font-size: 14px;
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
   .blackhole-text {
     font-size: 50px;
