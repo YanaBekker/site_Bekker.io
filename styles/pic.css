@@ -1,0 +1,365 @@
+/* pic.css*/
+
+.picture {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgb(138, 83, 0);
+  margin: 15px auto;
+  overflow: hidden;
+  background-color: white;
+}
+
+.fish {
+  position: absolute;
+  width: 120px;
+  height: 50px;
+}
+
+.fish_small {
+  scale: 0.6;
+  transform-origin: center;
+}
+
+.fish_body {
+  position: absolute;
+  width: 95px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(
+    to right,
+    rgb(240, 217, 178) 0%,
+    rgb(231, 184, 95) 30%,
+    rgb(200, 140, 40) 100%
+  );
+  left: 0;
+  top: 0;
+}
+
+.fish_tail {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-top: 25px solid transparent;
+  border-right: 65px solid rgb(206, 148, 48);
+  border-bottom: 25px solid transparent;
+  left: 80px;
+  top: -3px;
+  mask: radial-gradient(circle at right center, transparent 25px, black 20px)
+    border-box;
+}
+
+.fish_eye {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;
+  left: 15px;
+  top: 15px;
+}
+
+.gill-1 {
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  left: 45px;
+  top: 26px;
+  border: 3px solid rgb(235, 66, 195);
+  transform: rotate(55deg);
+  clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 0%);
+  border-radius: 50%;
+}
+
+.gill-2 {
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  left: 45px;
+  top: 15px;
+  border: 3px solid rgb(235, 66, 195);
+  transform: rotate(45deg);
+  clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 0%);
+  border-radius: 50%;
+}
+
+.gill-3 {
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  left: 45px;
+  top: 2px;
+  border: 3px solid rgb(235, 66, 195);
+  transform: rotate(35deg);
+  clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 0%);
+  border-radius: 50%;
+}
+
+.gill-eye {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  left: 13px;
+  top: 5px;
+  transform: rotate(50deg);
+  border: 5px solid rgb(235, 66, 195);
+  clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 0%);
+  border-radius: 50%;
+}
+
+.background {
+  position: absolute;
+  width: 200px;
+  height: 40px;
+  background: rgb(246, 167, 20);
+}
+
+.rectangle {
+  position: absolute;
+  width: 10px;
+  height: 40px;
+  background: rgb(246, 227, 20);
+}
+
+.oval {
+  position: absolute;
+  width: 25px;
+  height: 15px;
+  border-radius: 50%;
+  background: rgb(104, 69, 0);
+}
+
+.seaweed {
+  position: absolute;
+  width: 40px;
+  height: 150px;
+  border-right: 10px solid rgb(76, 223, 81);
+  border-radius: 50%;
+}
+
+.site-container {
+  display: flex;
+  flex-flow: column;
+  min-height: 25vh;
+}
+.spacer {
+  flex-grow: 1;
+}
+
+/* Стили для статьи в стиле Хабра */
+.article-content {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #0f0f0f;
+}
+
+.article-container {
+  background: #0f0f0f;
+  border-radius: 10px;
+  padding: 40px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 2;
+}
+
+.article-meta {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #bbb;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.article-meta .author {
+  color: #e2a22b;
+  font-weight: bold;
+}
+
+.article-intro {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 195, 75, 0.3);
+}
+
+.article-image-block {
+  text-align: center;
+  margin: 40px 0;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.image-caption {
+  font-style: italic;
+  color: #999;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.article-text {
+  line-height: 1.7;
+  color: #ccc;
+}
+
+.article-text h2 {
+  color: #e2a22b;
+  margin: 40px 0 20px 0;
+  font-size: 28px;
+}
+
+.article-text h3 {
+  color: #ffb347;
+  margin: 30px 0 15px 0;
+  font-size: 20px;
+}
+
+.article-text p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.article-text ul {
+  margin: 20px 0;
+  padding-left: 25px;
+}
+
+.article-text li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.article-text strong {
+  color: #ffb347;
+}
+
+.quote {
+  border-left: 4px solid #e2a22b;
+  padding: 20px 25px;
+  margin: 30px 0;
+  background: rgba(255, 195, 75, 0.1);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+.quote cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  color: #999;
+  font-size: 14px;
+}
+
+.info-box {
+  background: rgba(255, 195, 75, 0.15);
+  border: 1px solid rgba(255, 195, 75, 0.3);
+  border-radius: 8px;
+  padding: 25px;
+  margin: 30px 0;
+}
+
+.info-box h3 {
+  color: #e2a22b;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.info-box p {
+  margin-bottom: 10px;
+}
+
+.article-footer {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tags {
+  margin-bottom: 20px;
+}
+
+.tags span {
+  color: #999;
+  margin-right: 10px;
+}
+
+.tags a {
+  color: #e2a22b;
+  text-decoration: none;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.tags a:hover {
+  text-decoration: underline;
+}
+
+.social-share {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-share span {
+  color: #999;
+}
+
+.share-btn {
+  background: rgba(255, 195, 75, 0.2);
+  border: 1px solid rgba(255, 195, 75, 0.4);
+  color: #e2a22b;
+  padding: 5px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.share-btn:hover {
+  background: rgba(255, 195, 75, 0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .article-container {
+    padding: 20px;
+    margin-top: -30px;
+  }
+
+  .article-content {
+    padding: 20px 10px;
+  }
+
+  .article-text h2 {
+    font-size: 24px;
+  }
+
+  .article-meta {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .picture {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 480px) {
+  .article-container {
+    padding: 15px;
+  }
+
+  .article-text {
+    font-size: 15px;
+  }
+
+  .picture {
+    transform: scale(0.8);
+  }
+}
