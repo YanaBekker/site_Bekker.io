@@ -83,21 +83,6 @@ function initSmoothScroll() {
   });
 }
 
-function initForms() {
-  const subscribeForm = document.querySelector(".subscribe-form");
-  if (subscribeForm) {
-    subscribeForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const emailInput = this.querySelector('input[type="email"]');
-      const email = emailInput.value;
-      alert(
-        `Спасибо за подписку! На адрес ${email} будут отправляться новости.`
-      );
-      this.reset();
-    });
-  }
-}
-
 const style = document.createElement("style");
 style.textContent = `
   .mobile-menu-btn.active span:nth-child(1) {
