@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
     loadComponent("footer-container", "components/footer.html"),
   ]).then(() => {
     initNavigation();
-    initForms();
     initSmoothScroll();
   });
 });
