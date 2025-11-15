@@ -277,5 +277,3 @@ function showStatistics() {
   resultsHTML += `</div>`;
   statisticsElement.innerHTML = resultsHTML;
 }
-
-document.addEventListener("DOMContentLoaded", initQuiz);
