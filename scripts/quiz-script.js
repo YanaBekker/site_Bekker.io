@@ -15,7 +15,6 @@ function loadComponents() {
   });
 }
 
-
 document.addEventListener("DOMContentLoaded", function () {
   loadComponents()
     .then(() => {
@@ -275,11 +274,24 @@ function showStatistics() {
     const statusIcon = result.isCorrect ? "✓" : "✗";
     const statusText = result.isCorrect ? "Правильно" : "Неправильно";
 
+    const originalQuestion = questions.find(
+      (q) => q.question === result.question
+    );
+    const hasExplanation =
+      originalQuestion && originalQuestion.answers.find((a) => a.explanation);
+    const explanation = hasExplanation
+      ? originalQuestion.answers.find((a) => a.explanation).explanation
+      : null;
+
     resultsHTML += `
                     <div class="result-item ${statusClass}">
                         <div class="result-status ${statusClass}">${statusIcon}</div>
                         <div class="result-question">
-                            <strong>${index + 1}. ${result.question}</strong>
+                            <strong class="question-title" style="cursor: ${
+                              hasExplanation ? "pointer" : "default"
+                            }; padding: 5px; border-radius: 4px;">${
+      index + 1
+    }. ${result.question}</strong>
                             <div style="color: ${
                               result.isCorrect
                                 ? "var(--correct-color)"
@@ -287,6 +299,15 @@ function showStatistics() {
                             }; font-size: 0.9em; margin-top: 5px;">
                                 ${statusText}
                             </div>
+                            ${
+                              explanation
+                                ? `
+                            <div class="explanation-container" style="display: none; margin-top: 10px; padding: 10px; background: var(--bg-color); border-radius: 5px; border-left: 3px solid var(--accent-color);">
+                                <strong>Объяснение:</strong> ${explanation}
+                            </div>
+                            `
+                                : ""
+                            }
                         </div>
                     </div>
                 `;
@@ -294,6 +315,53 @@ function showStatistics() {
 
   resultsHTML += `</div>`;
   statisticsElement.innerHTML = resultsHTML;
+
+  addExplanationHandlers();
+}
+
+function addExplanationHandlers() {
+  const questionTitles = document.querySelectorAll(".question-title");
+
+  questionTitles.forEach((title) => {
+    const explanationContainer = title.parentElement.querySelector(
+      ".explanation-container"
+    );
+
+    if (explanationContainer) {
+      title.addEventListener("click", () => {
+        const isVisible = explanationContainer.style.display === "block";
+
+        document
+          .querySelectorAll(".explanation-container")
+          .forEach((container) => {
+            container.style.display = "none";
+          });
+
+        explanationContainer.style.display = isVisible ? "none" : "block";
+
+        if (!isVisible) {
+          title.style.backgroundColor = "var(--hover-color)";
+        } else {
+          title.style.backgroundColor = "";
+        }
+      });
+
+      title.addEventListener("mouseenter", () => {
+        if (explanationContainer) {
+          title.style.backgroundColor = "var(--hover-color)";
+        }
+      });
+
+      title.addEventListener("mouseleave", () => {
+        if (
+          explanationContainer &&
+          explanationContainer.style.display !== "block"
+        ) {
+          title.style.backgroundColor = "";
+        }
+      });
+    }
+  });
 }
 
 document.addEventListener("DOMContentLoaded", initQuiz);
