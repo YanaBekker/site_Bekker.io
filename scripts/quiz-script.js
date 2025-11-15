@@ -1,20 +1,3 @@
-function loadComponents() {
-  return Promise.all([
-    fetch("components/header.html")
-      .then((r) => r.text())
-      .then((html) => {
-        document.getElementById("header-container").innerHTML = html;
-      }),
-    fetch("components/footer.html")
-      .then((r) => r.text())
-      .then((html) => {
-        document.getElementById("footer-container").innerHTML = html;
-      }),
-  ]).catch((error) => {
-    console.log("Компоненты не загружены, используется автономный режим");
-  });
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   loadComponents()
     .then(() => {
